@@ -21,19 +21,25 @@ export default function Edit( props ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Settings', 'copyright-date-block' ) }
-				>
+				<PanelBody title={ __( 'Settings', 'copyright-date-block' ) }>
 					<ToggleControl
 						checked={ showStartingYear }
-						label={ __( 'Show starting year', 'copyright-date-block' ) }
+						label={ __(
+							'Show starting year',
+							'copyright-date-block'
+						) }
 						onChange={ () =>
-							setAttributes( { showStartingYear: ! showStartingYear } )
+							setAttributes( {
+								showStartingYear: ! showStartingYear,
+							} )
 						}
 					/>
 					{ showStartingYear && (
 						<TextControl
-							label={ __( 'Starting year', 'copyright-date-block' ) }
+							label={ __(
+								'Starting year',
+								'copyright-date-block'
+							) }
 							value={ startingYear }
 							onChange={ ( year ) =>
 								setAttributes( { startingYear: year } )
@@ -42,9 +48,7 @@ export default function Edit( props ) {
 					) }
 				</PanelBody>
 			</InspectorControls>
-			<p { ...useBlockProps() }>
-				© { displayDate }
-			</p>
+			<p { ...useBlockProps() }>© { displayDate }</p>
 		</>
 	);
 }

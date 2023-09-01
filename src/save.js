@@ -1,7 +1,6 @@
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
 import { useBlockProps } from '@wordpress/block-editor';
 
 export default function Save( props ) {
@@ -17,9 +16,5 @@ export default function Save( props ) {
 		displayDate = currentYear;
 	}
 
-    return (
-		<p { ...useBlockProps.save() }>
-			© { displayDate }
-		</p>
-	);
+	return <p { ...useBlockProps.save() }>© { displayDate }</p>;
 }
