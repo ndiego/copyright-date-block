@@ -1,9 +1,13 @@
 <?php
 $current_year       = date( "Y" );
-$show_starting_year = $attributes['showStartingYear'];
-$starting_year      = $attributes['startingYear'];
+$starting_year      = isset( $attributes['startingYear'] ) 
+	? $attributes['showStartingYear'] 
+	: false;
+$show_starting_year = isset( $attributes['showStartingYear'] ) 
+	? $attributes['showStartingYear'] 
+	: false;
 
-if ( $show_starting_year && $starting_year ) {
+if ( $starting_year && $show_starting_year ) {
 	$display_date = $starting_year . '–' . $current_year;
 } else {
 	$display_date = $current_year;
