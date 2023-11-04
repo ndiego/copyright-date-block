@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name:       Copyright Date Block
- * Description:       Display the copyright date for your website.
- * Requires at least: 6.1
+ * Description:       Display your site's copyright date.
+ * Requires at least: 6.2
  * Requires PHP:      7.0
  * Version:           0.1.0
  * Author:            Nick Diego

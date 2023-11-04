@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Copyright Date",
 	"category": "widgets",
-	"description": "Display the copyright date for your website.",
+	"description": "Display your site's copyright date.",
 	"example": {},
 	"attributes": {
 		"showStartingYear": {
