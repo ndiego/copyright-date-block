@@ -1,7 +1,7 @@
 {
 	"name": "copyright-date-block",
 	"version": "0.1.0",
-	"description": "Display the copyright date for your website.",
+	"description": "Display your site's copyright date.",
 	"author": "Nick Diego",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
