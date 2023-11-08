@@ -58,9 +58,9 @@ export default function Edit( { attributes, setAttributes } ) {
 	// Get the current year.
 	const currentYear = new Date().getFullYear();
 
-	// When the block loads, set the currentYear attribute to the current year.
+	// When the block loads, set the fallbackCurrentYear attribute to the current year.
 	useEffect(
-		() => setAttributes( { currentYear: currentYear.toString() } ),
+		() => setAttributes( { fallbackCurrentYear: currentYear.toString() } ),
 		[ currentYear, setAttributes ]
 	);
 

@@ -19,14 +19,14 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @return {Element} Element to render.
  */
 export default function save( { attributes } ) {
-	const { currentYear, showStartingYear, startingYear } = attributes;
+	const { fallbackCurrentYear, showStartingYear, startingYear } = attributes;
 	let displayDate;
 
 	// Display the starting year as well if supplied by the user.
 	if ( showStartingYear && startingYear ) {
-		displayDate = startingYear + '–' + currentYear;
+		displayDate = startingYear + '–' + fallbackCurrentYear;
 	} else {
-		displayDate = currentYear;
+		displayDate = fallbackCurrentYear;
 	}
 
 	return <p { ...useBlockProps.save() }>© { displayDate }</p>;
