@@ -8,6 +8,9 @@
 	"description": "Display your site's copyright date.",
 	"example": {},
 	"attributes": {
+		"currentYear": {
+			"type": "string"
+		},
 		"showStartingYear": {
 			"type": "boolean"
 		}, 

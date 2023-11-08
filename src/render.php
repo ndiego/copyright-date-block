@@ -14,12 +14,11 @@
 $current_year = date( "Y" );
 
 // Get the block's attribute values, if they exist.
-$starting_year      = isset( $attributes['startingYear'] ) 
-	? $attributes['startingYear'] 
-	: false;
-$show_starting_year = isset( $attributes['showStartingYear'] ) 
-	? $attributes['showStartingYear'] 
-	: false;
+if ( ! empty( $attributes['startingYear'] ) && ! empty( $attributes['showStartingYear'] ) ) {
+	$display_date = $attributes['startingYear'] . '–' . $current_year;
+} else {
+	$display_date = $current_year;
+}
 
 // Set the display date.	
 if ( $starting_year && $show_starting_year ) {

@@ -14,7 +14,7 @@ import { __ } from '@wordpress/i18n';
 import { useBlockProps } from '@wordpress/block-editor';
 
 /**
- * Imports the InspectorControls component, which is used to wrap 
+ * Imports the InspectorControls component, which is used to wrap
  * the block's custom controls that will appear in in the Settings
  * Sidebar when the block is selected.
  *
@@ -33,6 +33,14 @@ import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, TextControl, ToggleControl } from '@wordpress/components';
 
 /**
+ * Imports the useEffect React Hook. This is used to set an attribute when the
+ * block is loaded in the Editor.
+ *
+ * @see https://react.dev/reference/react/useEffect
+ */
+import { useEffect } from 'react';
+
+/**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
  *
@@ -49,6 +57,13 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	// Get the current year.
 	const currentYear = new Date().getFullYear();
+
+	// When the block loads, set the currentYear attribute to the current year.
+	useEffect(
+		() => setAttributes( { currentYear: currentYear.toString() } ),
+		[ currentYear, setAttributes ]
+	);
+
 	let displayDate;
 
 	// Display the starting year as well if supplied by the user.

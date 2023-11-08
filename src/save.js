@@ -15,14 +15,11 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @param {Object} props            Properties passed to the function.
  * @param {Object} props.attributes Available block attributes.
- * 
+ *
  * @return {Element} Element to render.
  */
-export default function Save( { attributes } ) {
-	const { showStartingYear, startingYear } = attributes;
-
-	// Get the current year.
-	const currentYear = new Date().getFullYear();
+export default function save( { attributes } ) {
+	const { currentYear, showStartingYear, startingYear } = attributes;
 	let displayDate;
 
 	// Display the starting year as well if supplied by the user.
