@@ -13,7 +13,7 @@
 		},
 		"showStartingYear": {
 			"type": "boolean"
-		}, 
+		},
 		"startingYear": {
 			"type": "string"
 		}
