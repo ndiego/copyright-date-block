@@ -6,21 +6,19 @@
 import { __ } from '@wordpress/i18n';
 
 /**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
-import { useBlockProps } from '@wordpress/block-editor';
-
-/**
  * Imports the InspectorControls component, which is used to wrap
  * the block's custom controls that will appear in in the Settings
  * Sidebar when the block is selected.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#inspectoradvancedcontrols
+ *
+ *
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { InspectorControls } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Imports the necessary components that will be used to create
@@ -53,16 +51,18 @@ import { useEffect } from 'react';
  * @return {Element} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ) {
-	const { showStartingYear, startingYear } = attributes;
+	const { fallbackCurrentYear, showStartingYear, startingYear } = attributes;
 
-	// Get the current year.
-	const currentYear = new Date().getFullYear();
+	// Get the current year and make sure it's a string.
+	const currentYear = new Date().getFullYear().toString();
 
-	// When the block loads, set the fallbackCurrentYear attribute to the current year.
-	useEffect(
-		() => setAttributes( { fallbackCurrentYear: currentYear.toString() } ),
-		[ currentYear, setAttributes ]
-	);
+	// When the block loads, set the fallbackCurrentYear attribute to the
+	// current year if it's not already set.
+	useEffect( () => {
+		if ( currentYear !== fallbackCurrentYear ) {
+			setAttributes( { fallbackCurrentYear: currentYear } );
+		}
+	}, [ currentYear, fallbackCurrentYear, setAttributes ] );
 
 	let displayDate;
 
@@ -96,8 +96,8 @@ export default function Edit( { attributes, setAttributes } ) {
 								'copyright-date-block'
 							) }
 							value={ startingYear }
-							onChange={ ( year ) =>
-								setAttributes( { startingYear: year } )
+							onChange={ ( value ) =>
+								setAttributes( { startingYear: value } )
 							}
 						/>
 					) }
