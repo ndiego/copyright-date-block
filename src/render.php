@@ -30,4 +30,4 @@ if ( isset( $attributes['fallbackCurrentYear'] ) && $attributes['fallbackCurrent
 	$block_content = '<p' . get_block_wrapper_attributes() . '>© ' . esc_html( $display_date ) . '</p>';
 }
 
-echo esc_kses( $block_content );
+echo wp_kses_post( $block_content );
