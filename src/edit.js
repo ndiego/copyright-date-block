@@ -9,8 +9,8 @@ import { __ } from '@wordpress/i18n';
  * Imports the InspectorControls component, which is used to wrap
  * the block's custom controls that will appear in in the Settings
  * Sidebar when the block is selected.
- * 
- * Also imports the React hook that is used to mark the block wrapper 
+ *
+ * Also imports the React hook that is used to mark the block wrapper
  * element. It provides all the necessary props like the class name.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#inspectorcontrols
