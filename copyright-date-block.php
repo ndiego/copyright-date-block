@@ -13,6 +13,10 @@
  * @package           copyright-date-block
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
  */
